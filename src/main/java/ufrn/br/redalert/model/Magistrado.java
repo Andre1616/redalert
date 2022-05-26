@@ -1,5 +1,7 @@
 package ufrn.br.redalert.model;
 
+import static javax.persistence.CascadeType.ALL;
+
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +24,7 @@ public class Magistrado {
     private Long id;
     private String nome;
     
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.ALL)
     private Secao secao;
     @JoinColumn(name = "id")
     

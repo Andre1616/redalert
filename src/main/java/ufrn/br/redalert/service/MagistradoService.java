@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import ufrn.br.redalert.model.Magistrado;
+import ufrn.br.redalert.model.Secao;
 import ufrn.br.redalert.repository.MagistradoRepository;
 
 @Service

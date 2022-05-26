@@ -21,16 +21,30 @@ public class Processo {
     @Column(nullable = false)
     private Long id;
     private String num_processo;
-
+    private String dsmov;
     
-    @ManyToOne
-    private Magistrado magistrado;
-    @JoinColumn(name = "id")
+    
 
     @Override
     public boolean equals(Object obj) {
         // TODO Auto-generated method stub
         return super.equals(obj);
+    }
+
+    public String getNum_processo() {
+        return num_processo;
+    }
+
+    public void setNum_processo(String num_processo) {
+        this.num_processo = num_processo;
+    }
+
+    public String getDsmov() {
+        return dsmov;
+    }
+
+    public void setDsmov(String dsmov) {
+        this.dsmov = dsmov;
     }
 
     @Override

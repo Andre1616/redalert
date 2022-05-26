@@ -20,6 +20,7 @@ public class Secao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+    
     private String localizacao;
 
     @Override
