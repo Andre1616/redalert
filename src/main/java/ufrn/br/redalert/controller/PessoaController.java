@@ -12,44 +12,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ufrn.br.redalert.model.Magistrado;
-import ufrn.br.redalert.service.MagistradoService;
+import ufrn.br.redalert.model.Pessoa;
+import ufrn.br.redalert.service.PessoaService;
 
 @RestController
-@RequestMapping("/magistrados")
-public class MagistradoController {
+@RequestMapping("/pessoas")
+public class PessoaController {
     
-    MagistradoService service;
+    PessoaService service;
 
-    public MagistradoController(MagistradoService service){
+    public PessoaController(PessoaService service){
         this.service = service;
     }
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Magistrado> findById(@PathVariable Long id){
+    public ResponseEntity<Pessoa> findById(@PathVariable Long id){
         return service
         .findById(id)   
-        .map(magistrado -> {
-            return ResponseEntity.ok(magistrado);
+        .map(pessoa -> {
+            return ResponseEntity.ok(pessoa);
         }).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public List<Magistrado> listAll(){
+    public List<Pessoa> listAll(){
         return service.listAll();
     }
 
     @PostMapping
-    public ResponseEntity<Magistrado> insert(@RequestBody Magistrado m){
-        return ResponseEntity.status(201).body(service.insert(m));
+    public ResponseEntity<Pessoa> insert(@RequestBody Pessoa p){
+        return ResponseEntity.status(201).body(service.insert(p));
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Magistrado> update(@RequestBody Magistrado m, @PathVariable Long id){
+    public ResponseEntity<Pessoa> update(@RequestBody Pessoa p, @PathVariable Long id){
         return service
             .findById(id)
-            .map(magistrado -> {
-                service.update(m);
-                return ResponseEntity.ok().body(m);
+            .map(pessoa -> {
+                service.update(p);
+                return ResponseEntity.ok().body(p);
         }).orElse(ResponseEntity.notFound().build());
 
     }
@@ -59,7 +59,7 @@ public class MagistradoController {
     public ResponseEntity<?> delete(@PathVariable Long id){
         return service
             .findById(id)
-            .map(magistrado -> {
+            .map(pessoa -> {
                 service.delete(id);
                 return ResponseEntity.ok().build();
             }).orElse(ResponseEntity.notFound().build());

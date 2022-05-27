@@ -24,6 +24,9 @@ public class Processo {
     private String dsmov;
     
     
+    @ManyToOne(cascade= CascadeType.ALL)
+    private Secao secao;
+    @JoinColumn(name = "id")
 
     @Override
     public boolean equals(Object obj) {
