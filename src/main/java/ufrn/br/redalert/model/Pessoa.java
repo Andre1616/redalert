@@ -10,13 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Pessoa {
+public class Pessoa extends AbstractEntity {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
-    
+
     private String cpf;
     private String nome;
     private String email;
@@ -37,12 +33,7 @@ public class Pessoa {
         // TODO Auto-generated method stub
         return super.hashCode();
     }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+
     public String getCpf() {
         return cpf;
     }

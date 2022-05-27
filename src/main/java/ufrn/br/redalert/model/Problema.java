@@ -1,25 +1,17 @@
 package ufrn.br.redalert.model;
 
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-public class Problema {
+@Data
+public class Problema extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+  
     private String descricao;
     @Override
     public boolean equals(Object obj) {
@@ -30,6 +22,12 @@ public class Problema {
     public int hashCode() {
         // TODO Auto-generated method stub
         return super.hashCode();
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     
 }
