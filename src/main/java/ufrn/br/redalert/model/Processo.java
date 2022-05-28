@@ -1,5 +1,7 @@
 package ufrn.br.redalert.model;
 
+import java.util.*;
+
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,13 +16,22 @@ public class Processo extends AbstractEntity {
 
    
     private String num_processo;
-    
+    private String dsmov;
     
     @ManyToOne(cascade= CascadeType.ALL)
     private Secao secao;
     @JoinColumn(name = "id")
 
-    
+    @ManyToMany(mappedBy = "Processo")
+    private List<Problema> problemas = new ArrayList<Problema>();
+
+    public List<Problema> getProblemas(){
+        return problemas;
+    }
+
+    public void setProblemas(ArrayList<Problema> p){
+        this.problemas = p;
+    }
 
     public String getNum_processo() {
         return num_processo;

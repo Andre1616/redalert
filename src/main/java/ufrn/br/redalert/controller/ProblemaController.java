@@ -7,7 +7,7 @@ import ufrn.br.redalert.service.ProblemaService;
 
 
 @RestController
-@RequestMapping("problemas")
+@RequestMapping("/problemas")
 public class ProblemaController extends AbstractController<Problema, ProblemaService> {
     public ProblemaController(ProblemaService service){
         super(service);
