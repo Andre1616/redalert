@@ -14,7 +14,6 @@ public class Processo extends AbstractEntity {
 
    
     private String num_processo;
-    private String dsmov;
     
     
     @ManyToOne(cascade= CascadeType.ALL)
