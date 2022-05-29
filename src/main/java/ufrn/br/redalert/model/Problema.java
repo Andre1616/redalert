@@ -18,9 +18,8 @@ public class Problema extends AbstractEntity {
     private String descricao;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="problema_processo", 
-    joinColumns = {@JoinColumn(name="id_problema", referencedColumnName = "id")},
-    inverseJoinColumns = {@JoinColumn(name="id")})
+    @JoinTable(name="problema_processo",joinColumns = {@JoinColumn(name="id_problema", referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(name="id_processo")})
     private List<Processo> processos = new ArrayList<Processo>();
 
     public void addProcesso(Processo p){
